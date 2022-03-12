@@ -21,6 +21,5 @@ public class Bullet : MonoBehaviour
             hitEnemy.TakeDamage(damage);
             Destroy(gameObject);
         }
-        //collision.gameObject.SetActive(false);
     }
 }
