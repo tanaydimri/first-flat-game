@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8755712583172359401}
   - component: {fileID: 4012349449084075011}
   - component: {fileID: 2035007766}
-  - component: {fileID: 2035007765}
+  - component: {fileID: 8363949355716784211}
   m_Layer: 0
   m_Name: Enemy_PiranhaPlant
   m_TagString: Untagged
@@ -130,7 +130,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.31, y: 0.3247341}
   m_EdgeRadius: 0
---- !u!114 &2035007765
+--- !u!114 &8363949355716784211
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

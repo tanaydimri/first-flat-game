@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.name);
-        Enemy hitEnemy = collision.GetComponent<Enemy>();
+        EnemyGeneric hitEnemy = collision.GetComponent<EnemyGeneric>();
         if (hitEnemy != null)
         {
             hitEnemy.TakeDamage(damage);

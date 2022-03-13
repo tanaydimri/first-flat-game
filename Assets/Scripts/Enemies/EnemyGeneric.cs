@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyGeneric : MonoBehaviour
 {
     public int health = 100;
     public Transform explosionEffect;
