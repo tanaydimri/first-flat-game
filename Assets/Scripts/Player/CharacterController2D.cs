@@ -63,15 +63,17 @@ public class CharacterController2D : MonoBehaviour
 
 	public void Move(float move, bool crouch, bool jump)
 	{
-		// If crouching, check to see if the character can stand up
-		if (!crouch)
-		{
-			// If the character has a ceiling preventing them from standing up, keep them crouching
-			if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
-			{
-				crouch = true;
-			}
-		}
+		// This was causing issues with enemy and Stars collision detection
+
+		//// If crouching, check to see if the character can stand up
+		//if (!crouch)
+		//{
+		//	// If the character has a ceiling preventing them from standing up, keep them crouching
+		//	if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
+		//	{
+		//		crouch = true;
+		//	}
+		//}
 
 		//only control the player if grounded or airControl is turned on
 		if (m_Grounded || m_AirControl)
