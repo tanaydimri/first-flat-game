@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -9,12 +7,19 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameEventSystem.current.onStarCollected += OnStarCollected;
+        GameEventSystem.Instance.onIncrementScore += IncrementScore;
+        GameEventSystem.Instance.onDecrementScore += DecrementScore;
     }
 
-    private void OnStarCollected()
+    private void IncrementScore(int incrementFactor)
     {
-        currentScore += 1;
-        GameEventSystem.current.ScoreUpdated(currentScore);
+        currentScore += incrementFactor;
+        GameEventSystem.Instance.ScoreUpdated(currentScore);
+    }
+
+    private void DecrementScore(int decrementFactor)
+    {
+        currentScore -= decrementFactor;
+        GameEventSystem.Instance.ScoreUpdated(currentScore);
     }
 }

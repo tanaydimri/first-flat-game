@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Star : MonoBehaviour
 {
+    [SerializeField] private int scoreStrength = 1;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag != "Player")
@@ -11,7 +13,7 @@ public class Star : MonoBehaviour
             return;
         }
 
-        GameEventSystem.current.StarCollected();
         Destroy(gameObject);
+        GameEventSystem.Instance.IncrementScore(scoreStrength);
     }
 }

@@ -1,20 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class GameUiManager : MonoBehaviour
 {
-    public TextMeshProUGUI scoreValueUi;
+    [SerializeField] private TextMeshProUGUI scoreValueUi;
+    [SerializeField] private TextMeshProUGUI healthValueUi;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameEventSystem.current.onScoreUpdated += updateScoreValue;
+        GameEventSystem.Instance.onScoreUpdated += UpdateScoreInUi;
+        GameEventSystem.Instance.onPlayerHealthUpdated += UpdatePlayerHealthInUi;
+        UpdatePlayerHealthInUi();
     }
 
-    private void updateScoreValue(int currentScore)
+    private void UpdateScoreInUi(int currentScore)
     {
         scoreValueUi.text = currentScore.ToString();
+    }
+
+    private void UpdatePlayerHealthInUi()
+    {
+        healthValueUi.text = PlayerHealth.current.playerHealth.ToString();
     }
 }

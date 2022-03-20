@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D characterController;
     public float runSpeed = 40f;
     private float horizontalMove = 0.0f;
-    private float verticalMove = 0.0f;
     private bool jump = false;
     private bool crouch = false;
 

@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     public float speed = 20f;
     public Rigidbody2D rb;
     public int damage = 50;
+    public Transform bulletImpactEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -14,12 +15,26 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
+        bool playImpactEffect = false;
+
         EnemyGeneric hitEnemy = collision.GetComponent<EnemyGeneric>();
         if (hitEnemy != null)
         {
             hitEnemy.TakeDamage(damage);
             Destroy(gameObject);
+            playImpactEffect = true;
+        }
+
+        if (collision.tag == "GroundCollider")
+        {
+            Destroy(gameObject);
+            playImpactEffect = true;
+        }
+
+        if (playImpactEffect)
+        {
+            Transform bulletImpact = Instantiate(bulletImpactEffect, transform.position, transform.rotation);
+            Destroy(bulletImpact.gameObject, 1f);
         }
     }
 }

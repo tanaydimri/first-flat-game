@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyGeneric : MonoBehaviour
 {
     public int health = 100;
+    public int playerDamageFactor = 10;
     public Transform explosionEffect;
 
     public void TakeDamage(int damageAmount) {
