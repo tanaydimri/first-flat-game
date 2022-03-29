@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public Animator animator;
 
     // Update is called once per frame
     void Update()
@@ -20,6 +19,15 @@ public class Weapon : MonoBehaviour
     {
         Debug.Log("Shooting Now");
 
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        // If the player is crouching, the bullet should start from a lower point on Y
+        bool _isPlayerCrouching = animator.GetBool("IsCrouching");
+        Vector3 processedTransform = firePoint.position;
+
+        if (_isPlayerCrouching)
+        {
+            processedTransform.y -= 0.08f;
+        }
+
+        Instantiate(bulletPrefab, processedTransform, firePoint.rotation);
     }
 }

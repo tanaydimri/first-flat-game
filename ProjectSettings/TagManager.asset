@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - GroundCollider
   - Bullet
+  - MainMenu
   layers:
   - Default
   - TransparentFX
